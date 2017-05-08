@@ -1,0 +1,26 @@
+page-dados-pro {
+  ion-item{
+    background-color: #132A49 !important;
+  }
+  ion-input,ion-label {
+    color: white !important;
+  }
+  .titlePage{
+    position: relative;
+    width: auto;
+    font-size: 1.8em;
+    color: white !important;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+  }
+  .subtitlePage{
+    position: relative;
+    width: auto;
+    color: white !important;
+  }
+  .labelFuncao{
+    font-size: 1.2em;
+    margin-top: 8%;
+  }
+}

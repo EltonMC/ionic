@@ -1,0 +1,38 @@
+page-user-select {
+  ion-content{
+    margin-top: 5%;
+  }
+  ion-card{
+    position: relative;
+    text-align: center;
+    width: auto;
+    height: 200px;
+  }
+  .titlePage{
+    position: relative;
+    width: 50%;
+    color: white !important;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 5%;
+  }
+  h3{
+    position: absolute;
+    top: 42%;
+    width: 100%;
+    color: white !important;
+  }
+  h1{
+    position: absolute;
+    top: 48%;
+    width: 100%;
+    font-weight: bold;
+    color: #fff!important;
+  }
+  .user-pro{
+    background-color: #EFD25D;
+  }
+  .user{
+    background-color: #2F5D9B;
+  }
+}

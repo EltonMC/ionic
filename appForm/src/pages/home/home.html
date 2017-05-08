@@ -1,0 +1,264 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>
+        Sign Up
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+      </ion-buttons>
+      <ion-buttons end>
+        <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #signupSlider pager>
+    <ion-slide>
+      <p *ngIf="submitAttempt" style="color: #ea6153;">Por favor, preencha todos os campos corretamente.</p>
+      <ion-list no-lines>
+        <form [formGroup]="slideOneForm">
+          <ion-item>
+            <ion-label floating>Nome</ion-label>
+            <ion-input formControlName="firstName" type="text" [class.invalid]="!slideOneForm.controls.firstName.valid && (slideOneForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Sobrenome</ion-label>
+            <ion-input formControlName="lastName" type="text" [class.invalid]="!slideOneForm.controls.lastName.valid && (slideOneForm.controls.age.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Email</ion-label>
+            <ion-input formControlName="email"  [class.invalid]="!slideOneForm.controls.email.valid && (slideOneForm.controls.email.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Data de Nascimento</ion-label>
+             <ion-datetime displayFormat="DD/MM/YYYY" formControlName="age" type="date" [class.invalid]="!slideOneForm.controls.age.valid && (slideOneForm.controls.age.dirty || submitAttempt)"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>CPF</ion-label>
+            <ion-input formControlName="cpf" type="number" [class.invalid]="!slideOneForm.controls.cpf.valid && (slideOneForm.controls.cpf.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>DDD</ion-label>
+            <ion-input formControlName="ddd" type="number" [class.invalid]="!slideOneForm.controls.ddd.valid && (slideOneForm.controls.ddd.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Telefone</ion-label>
+            <ion-input formControlName="telefone" type="number" [class.invalid]="!slideOneForm.controls.telefone.valid && (slideOneForm.controls.telefone.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+          <div padding>
+            <button ion-button color="blueButton" (click)="prev()">Continuar</button>
+          </div>
+
+        </form>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list no-lines>
+        <form [formGroup]="slideTwoForm">
+
+          <ion-item>
+            <ion-label>Assistência Técnica</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="tecnico-som"> Aparelho de som</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-ar"> Ar Condicionado</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-redes"> Redes</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-camera"> Câmera</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-celular"> Celular</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-informatica"> Informática</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-eletro"> Eletrodomésticos</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-fogao"> Fogão e Geladeira</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-impressora"> Impressora</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-lava-roupas"> Lava Roupa</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-microondas"> Microondas</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-video-games"> Video Games</ion-option>
+              <ion-option name="profissoes[]" value="tecnico-outros"> Outros</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Aulas</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="aulas-artes"> Artes e Artesanato</ion-option>
+              <ion-option name="profissoes[]" value="aulas-concursos"> Concursos</ion-option>
+              <ion-option name="profissoes[]" value="aulas-danca"> Dança</ion-option>
+              <ion-option name="profissoes[]" value="aulas-escolares"> Escolares</ion-option>
+              <ion-option name="profissoes[]" value="aulas-esportes"> Esportes</ion-option>
+              <ion-option name="profissoes[]" value="aulas-idiomas"> Idiomas</ion-option>
+              <ion-option name="profissoes[]" value="aulas-informatica"> Informática</ion-option>
+              <ion-option name="profissoes[]" value="aulas-musica"> Música</ion-option>
+              <ion-option name="profissoes[]" value="aulas-universitario"> Universitário</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Alarme</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="autos-alarme"> Alarme</ion-option>
+              <ion-option name="profissoes[]" value="autos-ar"> Ar-condicionado</ion-option>
+              <ion-option name="profissoes[]" value="autos-funilaria"> Funilaria</ion-option>
+              <ion-option name="profissoes[]" value="autos-inspecao"> Inspeção Veícular</ion-option>
+              <ion-option name="profissoes[]" value="autos-insulfilm"> Insulfilm</ion-option>
+              <ion-option name="profissoes[]" value="autos-martelinho"> Martelinho de ouro</ion-option>
+              <ion-option name="profissoes[]" value="autos-som"> Som automotivo</ion-option>
+              <ion-option name="profissoes[]" value="autos-revisao"> Revisão</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Consultoria</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="consultoria-advogado"> Advogado</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-imprensa"> Assessoria de Imprensa</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-administrativo"> Auxílio Administrativo</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-pessoal"> Consultor Pessoal</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-especializada"> Consultoria Especializada</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-contador"> Contador</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-detetive"> Detetive Particular</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-economia"> Economia e Finanças</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-pesquisas"> Pesquisas em Geral</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-conteudo"> Produção de Conteúdo</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-seguranca-trabalho"> Segurança do trabalho</ion-option>
+              <ion-option name="profissoes[]" value="consultoria-traducao"> Tradução</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Design e Tecnologia</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="tecnologia-animacao"> Animação</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-apps"> Apps para Smartphone</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-audio"> Audio e Vídeo</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-modelagem"> Modelagem 2D e 3D</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-convites"> Convites</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-jogos"> Criação de Jogos</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-sites"> Desenvolvimento de Sites</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-diagramador"> Diagramador</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-diagramador-fotos"> Edição de fotos</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-ilustracao"> Ilustração</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-marketing-digital"> Marketing Digital</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-grafica"> Produção Gráfica</ion-option>
+              <ion-option name="profissoes[]" value="tecnologia-web"> Web Designer</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Eventos</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="eventos-animacao"> Animação de Festas</ion-option>
+              <ion-option name="profissoes[]" value="eventos-assessor"> Assessor de Eventos</ion-option>
+              <ion-option name="profissoes[]" value="eventos-bandas"> Bandas e Cantores</ion-option>
+              <ion-option name="profissoes[]" value="eventos-bartender"> Bartender</ion-option>
+              <ion-option name="profissoes[]" value="eventos-brindes"> Brindes e Lembranças</ion-option>
+              <ion-option name="profissoes[]" value="eventos-buffet"> Buffet</ion-option>
+              <ion-option name="profissoes[]" value="eventos-churrasqueiro"> Churrasqueiro</ion-option>
+              <ion-option name="profissoes[]" value="eventos-decoracao"> Decoração</ion-option>
+              <ion-option name="profissoes[]" value="eventos-dj"> DJs</ion-option>
+              <ion-option name="profissoes[]" value="eventos-fotografia"> Fotografia</ion-option>
+              <ion-option name="profissoes[]" value="eventos-garcom"> Garçons e copeiras</ion-option>
+              <ion-option name="profissoes[]" value="eventos-videomaker"> Videomakers</ion-option>
+              <ion-option name="profissoes[]" value="eventos-producao"> Produção de eventos</ion-option>
+              <ion-option name="profissoes[]" value="eventos-recepcionista"> Recepcionistas</ion-option>
+              <ion-option name="profissoes[]" value="eventos-seguranca"> Segurança</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Moda e Beleza</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="moda-cabeleleiro"> Cabeleleiros</ion-option>
+              <ion-option name="profissoes[]" value="moda-costura"> Costura</ion-option>
+              <ion-option name="profissoes[]" value="moda-depilacao"> Depilação</ion-option>
+              <ion-option name="profissoes[]" value="moda-esoterismo"> Esoterismo</ion-option>
+              <ion-option name="profissoes[]" value="moda-esteticista"> Esteticista</ion-option>
+              <ion-option name="profissoes[]" value="moda-manicure"> Manicure</ion-option>
+              <ion-option name="profissoes[]" value="moda-maquiador"> Maquiadores</ion-option>
+              <ion-option name="profissoes[]" value="moda-stylist"> Personal Stylist</ion-option>
+              <ion-option name="profissoes[]" value="moda-sapateiro"> Sapateiro</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Reformas</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="reformas-arquiteto"> Arquiteto</ion-option>
+              <ion-option name="profissoes[]" value="reformas-automacao"> Automação Residencial</ion-option>
+              <ion-option name="profissoes[]" value="reformas-chaveiro"> Chaveiro</ion-option>
+              <ion-option name="profissoes[]" value="reformas-decorador"> Decorador</ion-option>
+              <ion-option name="profissoes[]" value="reformas-detetizador"> Detetizador</ion-option>
+              <ion-option name="profissoes[]" value="reformas-desentupidor"> Desentupidor</ion-option>
+              <ion-option name="profissoes[]" value="reformas-eletricista"> Eletricista</ion-option>
+              <ion-option name="profissoes[]" value="reformas-encanador"> Encanador</ion-option>
+              <ion-option name="profissoes[]" value="reformas-engenheiro"> Engenheiro</ion-option>
+              <ion-option name="profissoes[]" value="reformas-gesso"> Gesso e Drywall</ion-option>
+              <ion-option name="profissoes[]" value="reformas-impermeabilizador"> Impermeabilizador</ion-option>
+              <ion-option name="profissoes[]" value="reformas-ar"> Inst. de Ar-Condicionado</ion-option>
+              <ion-option name="profissoes[]" value="reformas-jardinagem"> Jardinagem</ion-option>
+              <ion-option name="profissoes[]" value="reformas-limpeza"> Limpeza Pós-Obra</ion-option>
+              <ion-option name="profissoes[]" value="reformas-marceneiro"> Marceneiro</ion-option>
+              <ion-option name="profissoes[]" value="reformas-marido"> Marido de Aluguel</ion-option>
+              <ion-option name="profissoes[]" value="reformas-montador"> Montador de Móveis</ion-option>
+              <ion-option name="profissoes[]" value="reformas-carreto"> Mudança e Carretos</ion-option>
+              <ion-option name="profissoes[]" value="reformas-paisagista"> Paisagista</ion-option>
+              <ion-option name="profissoes[]" value="reformas-pedreiro"> Pedreiro</ion-option>
+              <ion-option name="profissoes[]" value="reformas-pintor"> Pintor</ion-option>
+              <ion-option name="profissoes[]" value="reformas-piscineiro"> Piscineiro</ion-option>
+              <ion-option name="profissoes[]" value="reformas-seguranca"> Esp. em Segurança eletrônica</ion-option>
+              <ion-option name="profissoes[]" value="reformas-serralheiro"> Serralheiro e soldador</ion-option>
+              <ion-option name="profissoes[]" value="reformas-tapeceiro"> Tapeceiro</ion-option>
+              <ion-option name="profissoes[]" value="reformas-terraplanagem"> Esp. em terraplanagem</ion-option>
+              <ion-option name="profissoes[]" value="reformas-vidraceiro"> Vidraceiro</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Saúde</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="saude-acompanhante"> Acompanhante de idosos</ion-option>
+              <ion-option name="profissoes[]" value="saude-enfermeira"> Enfermeira</ion-option>
+              <ion-option name="profissoes[]" value="saude-fisioterapeuta"> Fisioterapeuta</ion-option>
+              <ion-option name="profissoes[]" value="saude-fonoaudiologo"> Fonoaudiólogo</ion-option>
+              <ion-option name="profissoes[]" value="saude-nutricionista"> Nutricionista</ion-option>
+              <ion-option name="profissoes[]" value="saude-psicologo"> Psicólogo</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Serviços Domésticos</ion-label>
+            <ion-select [class.invalid]="!slideTwoForm.controls.category.valid && (slideTwoForm.controls.category.dirty || submitAttempt)" formControlName="category" cancelText="Cancelar" okText="Ok"  multiple="true">
+              <ion-option name="profissoes[]" value="domestico-adestrador"> Adestrador de Cães</ion-option>
+              <ion-option name="profissoes[]" value="domestico-baba"> Babá</ion-option>
+              <ion-option name="profissoes[]" value="domestico-cozinheira"> Cozinheira</ion-option>
+              <ion-option name="profissoes[]" value="domestico-diarista"> Diarista</ion-option>
+              <ion-option name="profissoes[]" value="domestico-piscina"> Limpeza de Piscina</ion-option>
+              <ion-option name="profissoes[]" value="domestico-motorista"> Motorista</ion-option>
+              <ion-option name="profissoes[]" value="domestico-passadeira"> Passadeira</ion-option>
+              <ion-option name="profissoes[]" value="domestico-passeador"> Passeador de cães</ion-option>
+            </ion-select>
+          </ion-item>
+          <div padding>
+            <button ion-button color="blueButton" (click)="prev()">Voltar</button>
+            <button ion-button color="blueButton" (click)="prev()">Continuar</button>
+          </div>
+        </form>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <ion-list no-lines>
+        <form [formGroup]="slideThreeForm">
+          <ion-item>
+            <ion-label floating>Descrição</ion-label>
+            <ion-textarea formControlName="descricao"></ion-textarea>
+          </ion-item>
+          <button ion-button color="blueButton" (click)="prev()">Voltar</button>
+          <button ion-button color="primary" (click)="save()">Finalizar Cadastro!</button>
+        </form>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
